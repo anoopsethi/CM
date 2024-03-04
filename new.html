@@ -7,9 +7,8 @@
             position: fixed;
         }
         p {
-        text-align: center;
-    }
-
+            text-align: center;
+        }
     </style>
 </head>
 <body style="background-color: lightblue;" onload="startGame()">
@@ -47,7 +46,7 @@
             document.getElementById("timer").textContent = "Timer: " + minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
         }
 
-        document.getElementById("gif").onmouseover = function() {
+        document.getElementById("gif").ontouchstart = function() {
             clearInterval(timerInterval);
             clearInterval(moveInterval);
             endTime = new Date();
@@ -58,3 +57,4 @@
     </script>
 </body>
 </html>
+

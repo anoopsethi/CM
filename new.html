@@ -12,7 +12,7 @@
     </style>
 </head>
 <body style="background-color: lightblue;" onload="startGame()">
-    <img id="gif" src="giphy.gif" width="200" height="200" style="display: none;">
+    <img id="gif" src="giphy.gif" width="200" height="200" style="display: none;" ontouchstart="stopGame()">
     <p id="timer"></p>
     <p id="result"></p>
     <script>
@@ -46,15 +46,14 @@
             document.getElementById("timer").textContent = "Timer: " + minutes + ":" + (seconds < 10 ? "0" + seconds : seconds);
         }
 
-        document.getElementById("gif").ontouchstart = function() {
+        function stopGame() {
             clearInterval(timerInterval);
             clearInterval(moveInterval);
             endTime = new Date();
             let gameTime = (endTime - startTime) / 1000;
             document.getElementById("result").textContent = "You stopped the timer after " + gameTime.toFixed(2) + " seconds.";
             document.getElementById("gif").style.display = "none";
-        };
+        }
     </script>
 </body>
 </html>
-

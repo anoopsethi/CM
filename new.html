@@ -2,12 +2,33 @@
 <html>
 <head>
     <title>Move and Stop GIF Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Erica+One&display=swap" rel="stylesheet">
     <style>
+        .oi-regular {
+  font-family: "Oi", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
         #gif {
             position: fixed;
         }
         p {
             text-align: center;
+        }
+        #result {
+            font-family: 'Erica One', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+        }
+        #timer {
+            font-family: 'Erica One', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -27,7 +48,7 @@
             timerInterval = setInterval(updateTimer, 100);
 
             // Randomly change the GIF's position at regular intervals
-            moveInterval = setInterval(moveGif, 500);
+            moveInterval = setInterval(moveGif, 380);
 
             // Add event listeners for both touch and click events
             document.getElementById("gif").addEventListener("touchstart", stopGame);
@@ -55,7 +76,7 @@
             clearInterval(moveInterval);
             endTime = new Date();
             let gameTime = (endTime - startTime) / 1000;
-            document.getElementById("result").textContent = "You stopped the timer after " + gameTime.toFixed(2) + " seconds.";
+            document.getElementById("result").textContent = "You stopped the timer after " + gameTime.toFixed(2) + " seconds."; 
             document.getElementById("gif").style.display = "none";
         }
     </script>
